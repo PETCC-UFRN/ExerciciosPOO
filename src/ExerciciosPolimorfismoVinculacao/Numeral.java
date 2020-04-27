@@ -1,4 +1,4 @@
-package ExerciciosPolimorfismo;
+package ExerciciosPolimorfismoVinculacao;
 
 public abstract class Numeral {
 	
