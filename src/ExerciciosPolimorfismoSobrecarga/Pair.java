@@ -5,8 +5,9 @@ public class Pair {
 	private String dado;
 	private int chave;
 	
-	public Pair() {
-		
+	public Pair(Pair other) {
+		this.dado = other.dado;
+		this.chave = other.chave;
 	}
 	
 	public Pair(String dado) {

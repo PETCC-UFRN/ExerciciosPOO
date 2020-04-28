@@ -3,7 +3,7 @@ package ExerciciosPolimorfismoSobrecarga;
 public class ContainerPares {
 
 	private Pair[] data;
-	int capacity;
+	private int capacity;
 	
 	public ContainerPares(int size) {
 		data = new Pair[size];
@@ -11,7 +11,7 @@ public class ContainerPares {
 	}
 	
 	public void add(Pair dado) {
-		data[capacity] = new Pair(dado.getDado(), dado.getChave());
+		data[capacity] = new Pair(dado);
 		capacity += 1;
 	}
 	
