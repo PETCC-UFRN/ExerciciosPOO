@@ -1,14 +1,17 @@
 package ExerciciosPolimorfismoVinculacao;
 
-public class Inteiro extends Numeral{
+public class Inteiro extends Numeral
+{
 
 	private int numero;
 	
-	public Inteiro(int numero) {
+	public Inteiro(int numero) 
+	{
 		this.numero = numero;
 	}
 	
-	public int getNumero() {
+	public int getNumero() 
+	{
 		return this.numero;
 	}
 	
@@ -17,7 +20,8 @@ public class Inteiro extends Numeral{
 		this.numero = numero;
 	}
 	
-	public void printNum() {
+	public void printNum() 
+	{
 		System.out.print(this.numero + " ");
 	}
 }

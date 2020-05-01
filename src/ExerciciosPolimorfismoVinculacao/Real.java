@@ -1,14 +1,17 @@
 package ExerciciosPolimorfismoVinculacao;
 
-public class Real extends Numeral{
+public class Real extends Numeral
+{
 
 	private double numero;
 	
-	public Real(double numero) {
+	public Real(double numero) 
+	{
 		this.numero = numero;
 	}
 	
-	public double getNumero() {
+	public double getNumero() 
+	{
 		return this.numero;
 	}
 	
