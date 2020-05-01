@@ -1,4 +1,4 @@
-package ExerciciosPolimorfismoTemplate;
+package Polimorfismo.Template;
 import java.util.ArrayList;
 
 public class Buscador <T extends Comparable<T>>{

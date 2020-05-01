@@ -1,4 +1,4 @@
-package ExerciciosPolimorfismoVinculacao;
+package Polimorfismo.Vinculacao.Exercicio;
 
 import java.util.Scanner;
 

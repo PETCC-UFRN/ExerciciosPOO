@@ -1,4 +1,4 @@
-package ExerciciosPolimorfismoVinculacao;
+package Polimorfismo.Vinculacao.Exemplo;
 
 public class Real extends Numeral
 {
