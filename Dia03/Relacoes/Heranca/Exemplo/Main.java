@@ -1,4 +1,4 @@
-package Relacoes.Derivacao.Exemplo;
+package Relacoes.Heranca.Exemplo;
 
 public class Main 
 {

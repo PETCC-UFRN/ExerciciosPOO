@@ -4,21 +4,28 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		Personagem p1 = new Personagem("Kleber");
+		Arma a1 = new Arma();
+		a1.setNome("Espada Curta");
+		a1.setAtaque(15);
+		a1.setDurabilidade(20);
 		
-		Arma a1 = new Arma("Adaga comum", 30, 20);
-		Arma a2 = new Arma("Shanker", 150, 10);
+		Armadura arm1 = new Armadura();
+		arm1.setNome("Armadura de Couro");
+		arm1.setDefesa(10);
+		arm1.setDurabilidade(50);
 		
-		Armadura arm1 = new Armadura("Armadura de couro", 11, 100);
-		Armadura arm2 = new Armadura("Cota de Malha", 16, 500);
-		
+		Personagem p1 = new Personagem();
+		p1.setNome("Jorgin");
+		p1.setVida(30);
 		p1.setArmaPrincipal(a1);
 		p1.setArmadura(arm1);
-		p1.descEquipamento();
 		
-		p1.setArmaPrincipal(a2);
-		p1.setArmadura(arm2);
-		p1.descEquipamento();
+		Monstro m1 = new Monstro();
+		m1.setNome("Goblin");
+		m1.setAtaque(10);
+		m1.setVida(20);
+		
+		p1.Combater(m1);
 	}
 
 }

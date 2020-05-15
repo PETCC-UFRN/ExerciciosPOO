@@ -3,15 +3,8 @@ package Relacoes.Agregacao.Exercicio;
 public class Armadura 
 {
 	private String nome;
-	private int defesa;
 	private int durabilidade;
-	
-	public Armadura(String nome, int defesa, int durabilidade) 
-	{
-		this.nome = nome;
-		this.defesa = defesa;
-		this.durabilidade = durabilidade;
-	}
+	private int defesa;
 
 	public String getNome() 
 	{

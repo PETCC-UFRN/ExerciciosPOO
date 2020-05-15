@@ -1,10 +1,16 @@
 package Relacoes.Agregacao.Exercicio;
 
-public class Arma 
+public class Monstro 
 {
 	private String nome;
-	private int durabilidade;
+	private int vida;
 	private int ataque;
+	private boolean vivo;
+	
+	public Monstro() 
+	{
+		this.vivo = true;
+	}
 	
 	public String getNome() 
 	{
@@ -14,6 +20,14 @@ public class Arma
 	{
 		this.nome = nome;
 	}
+	public int getVida() 
+	{
+		return vida;
+	}
+	public void setVida(int vida) 
+	{
+		this.vida = vida;
+	}
 	public int getAtaque() 
 	{
 		return ataque;
@@ -22,12 +36,12 @@ public class Arma
 	{
 		this.ataque = ataque;
 	}
-	public int getDurabilidade() 
+	public boolean isVivo() 
 	{
-		return durabilidade;
+		return vivo;
 	}
-	public void setDurabilidade(int durabilidade) 
+	public void setVivo(boolean vivo) 
 	{
-		this.durabilidade = durabilidade;
+		this.vivo = vivo;
 	}
 }
