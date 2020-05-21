@@ -39,7 +39,7 @@ public class ListaAlimentos
 		}
 		
 		System.out.println("A lista possui:\n" 
-		+ countAnimal + " Alimentos de origem animal, somados num total de: " + pesoAnimal + " Kilos;\n"
-		+ countVegetal + " Alimentos de origem vegetal, somados num total de: " + pesoVegetal + " Kilos.");
+		+ countAnimal + " Alimentos de origem animal, somados num total de: " + pesoAnimal + " quilos;\n"
+		+ countVegetal + " Alimentos de origem vegetal, somados num total de: " + pesoVegetal + " quilos.");
 	}
 }
