@@ -52,4 +52,9 @@ public class Tabuleiro
 	{
 		info[x][y] = mark;
 	}
+	
+	public int at(int x, int y) 
+	{
+		return info[x][y];
+	}
 }
