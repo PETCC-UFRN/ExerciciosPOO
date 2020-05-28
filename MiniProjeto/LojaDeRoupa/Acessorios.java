@@ -8,8 +8,8 @@ public class Acessorios extends Produto {
 		 
 	 }
 	 
-	 public void cadastrar(String formato, String material, String nome, double preço, String cor, String categoria, String area) {
-			super.cadastrar(nome, preço, cor, categoria, area);
+	 public void cadastrar(String formato, String material, String nome, double preco, String cor, String categoria, String area) {
+			super.cadastrar(nome, preco, cor, categoria, area);
 			this.formato = formato;
 			this.material = material;		
 		} 
