@@ -1,10 +1,9 @@
 package VelhaOfGame;
 
-import java.util.ArrayList;
-
 public class Tabuleiro 
 {
 	private int[][] info;
+	private static int numPartidas;
 	
 	public Tabuleiro() 
 	{
@@ -21,6 +20,17 @@ public class Tabuleiro
 		}
 	}
 	
+	public static int getNumPartidas() 
+	{
+		return numPartidas;
+	}
+	
+	public static void setNumPartidas(int numPartidas) 
+	{
+		Tabuleiro.numPartidas = numPartidas;
+	}
+
+
 	public void printTabuleiro() 
 	{
 		System.out.println("------------------");
