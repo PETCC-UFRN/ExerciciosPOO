@@ -7,8 +7,8 @@ public class Roupas extends Produto {
 		
 	}
 	
-	public void cadastrar(int tamanho, String setorModa,String nome, double preço, String cor, String categoria, String area) {
-		super.cadastrar(nome, preço, cor, categoria, area);
+	public void cadastrar(int tamanho, String setorModa,String nome, double preco, String cor, String categoria, String area) {
+		super.cadastrar(nome, preco, cor, categoria, area);
 		this.tamanho = tamanho;
 		this.setorModa = setorModa;	
 	}
