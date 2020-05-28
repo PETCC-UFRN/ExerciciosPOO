@@ -2,7 +2,7 @@ package LojaDeRoupa;
 
 public class Produto {
 	String nome;
-	double preço;
+	double preco;
 	String cor;
 	String categoria;
 	
@@ -10,9 +10,9 @@ public class Produto {
 		
 	}
 	
-	public void cadastrar(String nome, double preço, String cor, String categoria, String area) {
+	public void cadastrar(String nome, double preco, String cor, String categoria, String area) {
 		this.nome = nome;
-		this.preço = preço;
+		this.preco = preco;
 		this.cor = cor;
 		this.categoria = categoria;
 		this.area = area;
@@ -24,11 +24,11 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public double getPreço() {
+	public double getPreco() {
 		return preço;
 	}
-	public void setPreço(double preço) {
-		this.preço = preço;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 	public String getCor() {
 		return cor;
