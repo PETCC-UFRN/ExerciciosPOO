@@ -5,12 +5,12 @@ public class Calçados extends Produto{
 	boolean fechado;
 	boolean baixo;
 	
-	public Calçados() {
+	public Calcados() {
 		
 	}
 	
-	public void cadastrar(int tamanho, boolean fechado, boolean baixo, String nome, double preço, String cor, String categoria, String area) {
-		super.cadastrar(nome, preço, cor, categoria, area);
+	public void cadastrar(int tamanho, boolean fechado, boolean baixo, String nome, double preco, String cor, String categoria, String area) {
+		super.cadastrar(nome, preco, cor, categoria, area);
 		this.tamanho = tamanho;
 		this.fechado = fechado;
 		this.baixo = baixo;		
