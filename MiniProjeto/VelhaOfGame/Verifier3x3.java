@@ -1,26 +1,29 @@
 package VelhaOfGame;
 
-public class Verifier2x2 extends Verifier
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class Verifier3x3 extends Verifier
 {
-	public boolean solve(Tabuleiro t, Player p, boolean velha) 
+	public boolean solve(Tabuleiro t, Player p, AtomicBoolean velha) 
 	{	
-		if(verificarDiagonal(t, p)) 
+		if(verificarDiagonal(t, p)) // Verifica se houve uma vitória na diagonal secudária ou principal.
 		{
 			return true;
 		}
 
-		if(verificarLinha(t,p)) 
+		if(verificarLinha(t,p)) // Verifica se houve uma vitória em uma das linhas.
 		{
 			return true;
 		}	
 		
-		if(verificarColuna(t,p)) 
+		if(verificarColuna(t,p)) // Verica se houve uma vitória em uma das colunas.
 		{
 			return true;
 		}
 		
-		if(verificarVelha(t, velha)) 
+		if(verificarVelha(t)) // Verifica se houve empate.
 		{
+			velha.set(true);;
 			return true;
 		}
 		
@@ -31,15 +34,15 @@ public class Verifier2x2 extends Verifier
 	{
 		int countPrinc = 0;
 		int countSec = 0;
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++) // Verifica se houve vitória na diagonal principal.
 		{
 			if(t.at(i, i) == p.getMarca()) 
 			{
-				countPrinc++;
+				countPrinc++; // Conta de houveram 3 marcas daquele jogador na diagonal, se sim, ele ganhou.
 			}
 		}
 		int j = 2;
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++) // Verifica a diagonal secundária.
 		{
 			if(t.at(j-i, i) == p.getMarca()) 
 			{
@@ -47,7 +50,7 @@ public class Verifier2x2 extends Verifier
 			}
 		}
 		
-		if(countSec == 3 || countPrinc == 3) 
+		if(countSec == 3 || countPrinc == 3) // Caso haja três marcas em alguma das diagonais, ele vence
 		{
 			return true;
 		}
@@ -58,7 +61,7 @@ public class Verifier2x2 extends Verifier
 	private boolean verificarLinha(Tabuleiro t, Player p) 
 	{
 		int count = 0;
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++) // Mesma lógica das diagonais, caso haja três marcas em uma das linhas, o jogador ganha.
 		{
 			for (int j = 0; j < 3; j++) 
 			{
@@ -80,7 +83,7 @@ public class Verifier2x2 extends Verifier
 	private boolean verificarColuna(Tabuleiro t, Player p) 
 	{
 		int count = 0;
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++) // Mesma lógica das linhas, porém verifica as colunas
 		{
 			for (int j = 0; j < 3; j++) 
 			{
@@ -99,11 +102,11 @@ public class Verifier2x2 extends Verifier
 		return false;
 	}
 	
-	private boolean verificarVelha(Tabuleiro t, boolean velha) 
+	private boolean verificarVelha(Tabuleiro t) 
 	{
 		int count = 0;
 		
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++) // Percorre todo o tabuleiro, caso não haja nenhuma casa em branco, o jogo empatou.
 		{
 			for(int j = 0; j < 3; j++) 
 			{
@@ -116,7 +119,6 @@ public class Verifier2x2 extends Verifier
 		
 		if(count == 0) 
 		{
-			velha = true;
 			return true;
 		}
 		

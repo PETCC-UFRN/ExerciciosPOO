@@ -1,6 +1,7 @@
 package VelhaOfGame;
 
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameManeger 
 {
@@ -10,14 +11,15 @@ public class GameManeger
 	private Verifier v;
 	private boolean finished;
 	private int lastTurn;
-	private boolean velha;
+	private AtomicBoolean velha;
 	
 	
-	public GameManeger() 
+	public GameManeger()
 	{
 		finished = false;
 		lastTurn = 2;
-		velha = false;
+		velha = new AtomicBoolean();
+		velha.set(false);
 	}
 	
 	public boolean isFinished() 
@@ -25,13 +27,13 @@ public class GameManeger
 		return this.finished;
 	}
 	
-	public void gameStart(int flag) 
+	public void gameStart(int flag) // Instancia os objetos do jogo.
 	{
 		Scanner leitor = new Scanner(System.in);
-		t = new Tabuleiro();
-		v = new Verifier2x2();
+		t = new Tabuleiro(); // Criando o tabuleiro do jogo.
+		v = new Verifier3x3(); // Criando o verificador da condição de vitória.
 		
-		if (flag == 1) 
+		if (flag == 1) // Iniciando o jogo com dois jogadores humanos
 		{
 			System.out.print("Player 1, digite seu nome: ");
 			String dummy = leitor.next();
@@ -40,7 +42,7 @@ public class GameManeger
 			String dummy2 = leitor.next();
 			p2 = new Humano(dummy2, 2);
 		}
-		else if(flag == 2) 
+		else if(flag == 2) // Iniciando o jogo com 1 jogador humano e 1 IA.
 		{
 			System.out.print("Player 1, digite seu nome: ");
 			String dummy = leitor.next();
@@ -55,14 +57,14 @@ public class GameManeger
 		System.out.println("Iniciando a partida de número: "+Tabuleiro.getNumPartidas());
 	}
 	
-	public void turno() 
+	public void turno() // Realiza o turno do jogador
 	{
-		if(lastTurn == 2) 
+		if(lastTurn == 2) // caso o jogador 2 tenha sido o ultimo a jogar, a vez é do jogador 1.
 		{
 			lastTurn = 1;
 			p1.play(t);
 		}
-		else if(lastTurn == 1) 
+		else if(lastTurn == 1) // caso o jogador 1 tenha sido o ultimo a jogar, a vez é do jogador 2.
 		{
 			lastTurn = 2;
 			p2.play(t);
@@ -72,23 +74,23 @@ public class GameManeger
 	
 	public void verificarVitoria() 
 	{		
-		if(lastTurn == 1) 
+		if(lastTurn == 1) // Verifica se o jogador 1 venceu.
 		{
-			finished = v.solve(t, p1, velha);
+			finished = v.solve(t, p1, this.velha);
 		}
-		else 
+		else // Verifica se o jogador 2 venceu.
 		{
-			finished = v.solve(t, p2, velha);
+			finished = v.solve(t, p2, this.velha);
 		}
 	}
 	
 	public void winnerMessage() 
 	{
-		if(velha) 
+		if(this.velha.get()) // Em caso de "velha", nenhum dos jogadores ganha
 		{
 			System.out.println("Deu velha!!! Ninguém ganhou :(");
 		}
-		else 
+		else // Se não houve "velha", o último a jogar venceu.
 		{
 			if(lastTurn == 1) 
 			{
@@ -101,20 +103,20 @@ public class GameManeger
 		}
 	}
 	
-	public void printPlacar() 
+	public void printPlacar() // Mostra o placar atual.
 	{
 		System.out.println("Placar atual: ");
 		System.out.println(p1.getNome()+" " + p1.getNumVitorias() + " vitórias");
 		System.out.println(p2.getNome()+" " + p2.getNumVitorias() + " vitórias");
 	}
 	
-	public void reset() 
+	public void reset() // Reinicia o jogo.
 	{
-		if(velha) 
+		if(this.velha.get()) // Em caso de empate, nenhum jogador ganha uma vitória.
 		{
 			finished = false;
-			velha = false;
-			for (int i = 0; i < 3; i++) 
+			velha.set(false);
+			for (int i = 0; i < 3; i++) // Reseta as marcações do tabuleiro.
 			{
 				for (int j = 0; j < 3; j++) 
 				{
@@ -124,7 +126,7 @@ public class GameManeger
 			
 			lastTurn = 2;
 		}
-		else 
+		else // Se não houve empate, computar a vitória do jogador.
 		{
 			if(lastTurn == 1) 
 			{
@@ -138,7 +140,7 @@ public class GameManeger
 			printPlacar();
 			
 			finished = false;
-			for (int i = 0; i < 3; i++) 
+			for (int i = 0; i < 3; i++) // Reseta as marcações do tabuleiro.
 			{
 				for (int j = 0; j < 3; j++) 
 				{
