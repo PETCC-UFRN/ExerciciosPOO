@@ -4,7 +4,7 @@ public class Loja {
 	Pessoa funcionario;
 	Pessoa cliente;
 	Caixa caixa;
-	Produto produto;
+	ArrayList<Produto> produto;
 	
 	public Loja(Pessoa funcionario, Caixa caixa) {
 		this.funcionario = funcionario;
