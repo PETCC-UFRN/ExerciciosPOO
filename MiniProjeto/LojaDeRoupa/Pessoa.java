@@ -3,7 +3,7 @@ package LojaDeRoupa;
 public class Pessoa {
 	private String cpf;   
 	private String nome;
-	private String endereço;
+	private String endereco;
 	private String sexo;
 	
 	public String getCpf() {
@@ -18,11 +18,11 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getEndereço() {
-		return endereço;
+	public String getEndereco() {
+		return endereco;
 	}
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 	public String getSexo() {
 		return sexo;
