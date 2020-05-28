@@ -9,7 +9,7 @@ public class Humano extends Player
 		super(nome,marca);
 	}
 	
-	public void play(Tabuleiro t) 
+	public void play(Tabuleiro t) // Realiza uma jogada do jogador Humano.
 	{
 		Scanner leitor = new Scanner(System.in);
 		t.printTabuleiro();
