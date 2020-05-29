@@ -1,19 +1,19 @@
 package LojaDeRoupa;
 
-public class Calçados extends Produto{
+public class Calcados extends Produto{
 	int tamanho;
 	boolean fechado;
 	boolean baixo;
 	
-	public Calcados() {
-		
-	}
-	
-	public void cadastrar(int tamanho, boolean fechado, boolean baixo, String nome, double preco, String cor, String categoria, String area) {
-		super.cadastrar(nome, preco, cor, categoria, area);
+	public Calcados(String nome, double preco, String cor, String categoria, String area, int tamanho, boolean fechado, boolean baixo) {
+		super(nome, preco, cor, categoria, area);
 		this.tamanho = tamanho;
 		this.fechado = fechado;
-		this.baixo = baixo;		
+		this.baixo = baixo;
+	}
+	
+	public String cadastrar() {
+		return (this.nome + " de tamanho " + this.tamanho + " cadastrado(a)");
 	}
 	
 	public int getTamanho() {

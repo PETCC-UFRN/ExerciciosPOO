@@ -1,5 +1,7 @@
 package LojaDeRoupa;
 
+import java.util.ArrayList;
+
 public class Loja {
 	Pessoa funcionario;
 	Pessoa cliente;
@@ -15,6 +17,14 @@ public class Loja {
 		
 		Funcionario func = new Funcionario();
 		func.setNome("henrrique");
+		Caixa caixa = new Caixa();
+		Loja marisa = new Loja(func,caixa);
+		
+		func.setSalario(1000);
+		
+		//Roupas blusa = new Roupas();
+		
+		
 		
 		
 	}

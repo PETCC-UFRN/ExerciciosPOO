@@ -6,16 +6,16 @@ public class Produto {
 	String cor;
 	String categoria;
 	
-	public Produto() {
-		
-	}
-	
-	public void cadastrar(String nome, double preco, String cor, String categoria, String area) {
+	public Produto(String nome, double preco, String cor, String categoria, String area) {
 		this.nome = nome;
 		this.preco = preco;
 		this.cor = cor;
 		this.categoria = categoria;
 		this.area = area;
+	}
+
+	public String cadastrar() {
+		return ("Produto cadastrado");
 	}
 	
 	public String getNome() {
@@ -24,10 +24,10 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public double getPreco() {
-		return preço;
+	public double getpreco() {
+		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setpreco(double preco) {
 		this.preco = preco;
 	}
 	public String getCor() {
