@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Verifier3x3 extends Verifier
 {
-	public boolean solve(Tabuleiro t, Player p, AtomicBoolean velha) 
+	public boolean verify(Tabuleiro t, Player p, AtomicBoolean velha) 
 	{	
 		if(verificarDiagonal(t, p)) // Verifica se houve uma vitória na diagonal secudária ou principal.
 		{

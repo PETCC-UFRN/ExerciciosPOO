@@ -76,11 +76,11 @@ public class GameManeger
 	{		
 		if(lastTurn == 1) // Verifica se o jogador 1 venceu.
 		{
-			finished = v.solve(t, p1, this.velha);
+			finished = v.verify(t, p1, this.velha);
 		}
 		else // Verifica se o jogador 2 venceu.
 		{
-			finished = v.solve(t, p2, this.velha);
+			finished = v.verify(t, p2, this.velha);
 		}
 	}
 	
