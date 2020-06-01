@@ -5,6 +5,7 @@ public class Produto {
 	double preco;
 	String cor;
 	String categoria;
+	String area;
 	
 	public Produto(String nome, double preco, String cor, String categoria, String area) {
 		this.nome = nome;
@@ -48,5 +49,4 @@ public class Produto {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	String area;
 }
