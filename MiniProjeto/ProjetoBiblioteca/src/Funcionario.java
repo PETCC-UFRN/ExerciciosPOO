@@ -1,6 +1,6 @@
 
 public class Funcionario extends Pessoa {
-  public Funcionario(String nome, byte[] senha){
+  public Funcionario(String nome, String senha){
     super(nome, senha);
   }
   @Override

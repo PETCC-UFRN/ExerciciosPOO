@@ -3,13 +3,10 @@ import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
-//import java.util.Comparator;
 import java.util.Scanner;
 
 
 public class Biblioteca{
-      //Comparator.comparing(Usuario::getNome));
-      //Comparator.comparing(Funcionario::getNome));
   private Autenticador autenticador = Autenticador.getInstance();
   private Usuario usuarioLogado = null;
   Scanner sc = new Scanner(System.in);
@@ -49,9 +46,10 @@ public class Biblioteca{
         autenticador.login();
         mostrarOpcoes();
       }
-      else if (opt.charAt(0) == 'c')
-        ;
-      //cadastro();
+      else if (opt.charAt(0) == 'c'){
+        autenticador.cadastro();
+        mostrarOpcoes();
+      }
       else if (opt.charAt(0) == 'f')
         fechar();
       else

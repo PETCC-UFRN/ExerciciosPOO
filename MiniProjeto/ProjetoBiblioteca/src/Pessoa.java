@@ -1,7 +1,7 @@
 public abstract class Pessoa {
   private String nome;
-  private byte[] senha;
-  public Pessoa(String nome, byte[] senha){
+  private String senha;
+  public Pessoa(String nome, String senha){
     this.nome  = nome;
     this.senha = senha;
   }
@@ -9,7 +9,7 @@ public abstract class Pessoa {
   public String getNome(){
     return nome;
   }
-  public byte[] getSenha(){
+  public String getSenha(){
     return senha;
   }
 }
