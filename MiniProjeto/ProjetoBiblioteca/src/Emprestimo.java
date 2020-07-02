@@ -4,6 +4,7 @@ public class Emprestimo {
   public LocalDate dataEmprestimo;
   public LocalDate dataDevolucao;
   public boolean renovado;
+  public Item item;
   
   public Emprestimo(){
     dataEmprestimo = LocalDate.now();

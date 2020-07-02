@@ -16,9 +16,9 @@ import org.json.*;
  */
 public class Autenticador{
   static private Autenticador instance;
-  private HashMap<String, Usuario> usuarios = new HashMap<>();
+  private HashMap<String, UsuarioComum> usuarios = new HashMap<>();
   private HashMap<String, Funcionario> funcionarios = new HashMap<>();
-  private Pessoa usuarioLogado = null;
+  private Usuario usuarioLogado = null;
   Scanner sc = new Scanner(System.in);
 
   private Autenticador(){
@@ -39,7 +39,7 @@ public class Autenticador{
   public void cadastro(){
     System.out.print("Digite nome do usuário: ");
     String nome = sc.next();
-    Pessoa usuario = usuarios.get(nome);
+    Usuario usuario = usuarios.get(nome);
     if (usuario == null)
       usuario = funcionarios.get(nome);
     if (usuario != null){
@@ -51,9 +51,9 @@ public class Autenticador{
     try {
       BufferedWriter writer = new BufferedWriter(
           new FileWriter("resources/usuarios.csv", true));
-      writer.append("\n"+nome+","+senha);
+      writer.append(nome+","+senha);
       writer.close(); 
-      Usuario u = new Usuario(nome, senha);
+      UsuarioComum u = new UsuarioComum(nome, senha);
       usuarioLogado = u;
       usuarios.put(nome, u);
     }
@@ -87,7 +87,7 @@ public class Autenticador{
       return;
     }
   }
-  public Pessoa getUsuarioLogado(){
+  public Usuario getUsuarioLogado(){
     return usuarioLogado;
   }
   public void sair(){
@@ -99,7 +99,7 @@ public class Autenticador{
       String header = reader.nextLine();//Primeira linha é o cabeçalho
       while (reader.hasNextLine()){
         String[] dados = reader.nextLine().trim().split(",");
-        usuarios.put(dados[0], new Usuario(dados[0], dados[1]));
+        usuarios.put(dados[0], new UsuarioComum(dados[0], dados[1]));
       }
       reader.close();
     } catch (FileNotFoundException e) {
@@ -113,7 +113,7 @@ public class Autenticador{
       String header = reader.nextLine();//Primeira linha é o cabeçalho
       while (reader.hasNextLine()){
         String[] dados = reader.nextLine().split(",");
-        usuarios.put(dados[0], new Usuario(dados[0].trim(), dados[1].trim()));
+        funcionarios.put(dados[0], new Funcionario(dados[0].trim(), dados[1].trim()));
       }
       reader.close();
     } catch (FileNotFoundException e) {

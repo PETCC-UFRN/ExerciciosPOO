@@ -1,6 +1,7 @@
 import java.io.Console;
 import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -8,33 +9,27 @@ import java.util.Scanner;
 
 public class Biblioteca{
   private Autenticador autenticador = Autenticador.getInstance();
-  private Usuario usuarioLogado = null;
-  Scanner sc = new Scanner(System.in);
+  private Scanner sc = new Scanner(System.in);
+  private ArrayList<Item> itens = new ArrayList<>();
+  private boolean aberto = true;
   
   public Biblioteca(){
-    mostrarOpcoes();
+    while(aberto)
+      mostrarOpcoes();
   }
   private void mostrarOpcoes(){
     if (autenticador.getUsuarioLogado()!= null){
-      //@TODO
-      System.out.println("Bem-vindo, " + 
-          autenticador
-          .getUsuarioLogado()
+      System.out.println("Bem-vindo, " + autenticador.getUsuarioLogado()
           .getNome());
-      autenticador
-        .getUsuarioLogado().mostrarOpcoes();
-      //if (autenticador.getUsuarioLogado() instanceof Funcionario)
-      //  System.out.println("Opções de Funcionário");
-      System.out.print( 
-          "l - listar itens\n" +
-          "s - Sair\n");
+      autenticador.getUsuarioLogado().mostrarOpcoes();
       String opt = sc.next();
       if (opt.charAt(0) == 's'){
         autenticador.sair();
-        mostrarOpcoes();
+        //mostrarOpcoes();
       }
       else
-        mostrarOpcoes();
+        autenticador.getUsuarioLogado().tratarOpcao(opt, this);
+        //mostrarOpcoes();
     }
     else {
       System.out.print( 
@@ -44,11 +39,11 @@ public class Biblioteca{
       String opt = sc.next();
       if (opt.charAt(0) == 'l'){
         autenticador.login();
-        mostrarOpcoes();
+        //mostrarOpcoes();
       }
       else if (opt.charAt(0) == 'c'){
         autenticador.cadastro();
-        mostrarOpcoes();
+        //mostrarOpcoes();
       }
       else if (opt.charAt(0) == 'f')
         fechar();
@@ -57,6 +52,7 @@ public class Biblioteca{
     }
   }
   private void fechar(){
+    aberto = false;
     System.out.println("Fechando...");
   }
 }

@@ -1,0 +1,80 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+Autenticador	./src/Autenticador.java	/^  private Autenticador(){$/;"	m	class:Autenticador	file:
+Autenticador	./src/Autenticador.java	/^public class Autenticador{$/;"	c
+Biblioteca	./src/Biblioteca.java	/^  public Biblioteca(){$/;"	m	class:Biblioteca
+Biblioteca	./src/Biblioteca.java	/^public class Biblioteca{$/;"	c
+Emprestimo	./src/Emprestimo.java	/^  public Emprestimo(){$/;"	m	class:Emprestimo
+Emprestimo	./src/Emprestimo.java	/^  public Emprestimo(int diasDeAjuste){$/;"	m	class:Emprestimo
+Emprestimo	./src/Emprestimo.java	/^public class Emprestimo {$/;"	c
+Funcionario	./src/Funcionario.java	/^  public Funcionario(String nome, String senha){$/;"	m	class:Funcionario
+Funcionario	./src/Funcionario.java	/^public class Funcionario extends Usuario {$/;"	c
+InvalidPasswordException	./src/InvalidPasswordException.java	/^  public InvalidPasswordException(String message){$/;"	m	class:InvalidPasswordException
+InvalidPasswordException	./src/InvalidPasswordException.java	/^public class InvalidPasswordException extends Exception{$/;"	c
+Item	./src/Item.java	/^  public Item(String titulo){$/;"	m	class:Item
+Item	./src/Item.java	/^public abstract class Item {$/;"	c
+Livro	./src/Livro.java	/^  public Livro(){$/;"	m	class:Livro
+Livro	./src/Livro.java	/^public class Livro extends Item {$/;"	c
+Main	./src/Main.java	/^public class Main {$/;"	c
+NoSuchUserException	./src/NoSuchUserException.java	/^  public NoSuchUserException(String mensagem){$/;"	m	class:NoSuchUserException
+NoSuchUserException	./src/NoSuchUserException.java	/^public class NoSuchUserException extends Exception{$/;"	c
+Usuario	./src/Usuario.java	/^  public Usuario(String nome, String senha){$/;"	m	class:Usuario
+Usuario	./src/Usuario.java	/^public abstract class Usuario {$/;"	c
+UsuarioComum	./src/UsuarioComum.java	/^  public UsuarioComum(String nome, String senha){$/;"	m	class:UsuarioComum
+UsuarioComum	./src/UsuarioComum.java	/^public class UsuarioComum extends Usuario {$/;"	c
+aberto	./src/Biblioteca.java	/^  private boolean aberto = true;$/;"	f	class:Biblioteca	file:
+autenticador	./src/Biblioteca.java	/^  private Autenticador autenticador = Autenticador.getInstance();$/;"	f	class:Biblioteca	file:
+cadastro	./src/Autenticador.java	/^  public void cadastro(){$/;"	m	class:Autenticador
+carregarFuncionarios	./src/Autenticador.java	/^  private void carregarFuncionarios(){$/;"	m	class:Autenticador	file:
+carregarUsuarios	./src/Autenticador.java	/^  private void carregarUsuarios(){$/;"	m	class:Autenticador	file:
+checarFuncionario	./src/Autenticador.java	/^  private void checarFuncionario(String nome) $/;"	m	class:Autenticador	file:
+checarSenha	./src/Autenticador.java	/^  private void checarSenha(String senha)$/;"	m	class:Autenticador	file:
+checarUsuario	./src/Autenticador.java	/^  private void checarUsuario(String nome) $/;"	m	class:Autenticador	file:
+dataDevolucao	./src/Emprestimo.java	/^  public LocalDate dataDevolucao;$/;"	f	class:Emprestimo
+dataEmprestimo	./src/Emprestimo.java	/^  public LocalDate dataEmprestimo;$/;"	f	class:Emprestimo
+disponiveis	./src/Item.java	/^  private int disponiveis;$/;"	f	class:Item	file:
+emprestimos	./src/UsuarioComum.java	/^  TreeSet<Emprestimo> emprestimos;$/;"	f	class:UsuarioComum
+fechar	./src/Biblioteca.java	/^  private void fechar(){$/;"	m	class:Biblioteca	file:
+funcionarios	./src/Autenticador.java	/^  private HashMap<String, Funcionario> funcionarios = new HashMap<>();$/;"	f	class:Autenticador	file:
+getDataDevolucao	./src/Emprestimo.java	/^  public LocalDate getDataDevolucao(){$/;"	m	class:Emprestimo
+getDataEmprestimo	./src/Emprestimo.java	/^  public LocalDate getDataEmprestimo(){$/;"	m	class:Emprestimo
+getId	./src/Item.java	/^  public int getId() {$/;"	m	class:Item
+getInstance	./src/Autenticador.java	/^  static public Autenticador getInstance(){$/;"	m	class:Autenticador
+getNome	./src/Usuario.java	/^  public String getNome(){$/;"	m	class:Usuario
+getSenha	./src/Usuario.java	/^  public String getSenha(){$/;"	m	class:Usuario
+getTitulo	./src/Item.java	/^  public String getTitulo() {$/;"	m	class:Item
+getUsuarioLogado	./src/Autenticador.java	/^  public Usuario getUsuarioLogado(){$/;"	m	class:Autenticador
+id	./src/Item.java	/^  private int id;$/;"	f	class:Item	file:
+instance	./src/Autenticador.java	/^  static private Autenticador instance;$/;"	f	class:Autenticador	file:
+isRenovado	./src/Emprestimo.java	/^  public boolean isRenovado(){$/;"	m	class:Emprestimo
+item	./src/Emprestimo.java	/^  public Item item;$/;"	f	class:Emprestimo
+itens	./src/Biblioteca.java	/^  private ArrayList<Item> itens = new ArrayList<>();$/;"	f	class:Biblioteca	file:
+login	./src/Autenticador.java	/^  public void login(){$/;"	m	class:Autenticador
+main	./src/Main.java	/^  public static void main(String[] args) {$/;"	m	class:Main
+mostrarOpcoes	./src/Biblioteca.java	/^  private void mostrarOpcoes(){$/;"	m	class:Biblioteca	file:
+mostrarOpcoes	./src/Funcionario.java	/^  public void mostrarOpcoes(){$/;"	m	class:Funcionario
+mostrarOpcoes	./src/Usuario.java	/^  public abstract void mostrarOpcoes();$/;"	m	class:Usuario
+mostrarOpcoes	./src/UsuarioComum.java	/^  public void mostrarOpcoes(){$/;"	m	class:UsuarioComum
+nome	./src/Usuario.java	/^  private String nome;$/;"	f	class:Usuario	file:
+quantidade	./src/Item.java	/^  private int quantidade;$/;"	f	class:Item	file:
+renovado	./src/Emprestimo.java	/^  public boolean renovado;$/;"	f	class:Emprestimo
+renovar	./src/Emprestimo.java	/^  public void renovar() throws Exception{$/;"	m	class:Emprestimo
+sair	./src/Autenticador.java	/^  public void sair(){$/;"	m	class:Autenticador
+sc	./src/Autenticador.java	/^  Scanner sc = new Scanner(System.in);$/;"	f	class:Autenticador
+sc	./src/Biblioteca.java	/^  private Scanner sc = new Scanner(System.in);$/;"	f	class:Biblioteca	file:
+senha	./src/Usuario.java	/^  private String senha;$/;"	f	class:Usuario	file:
+setId	./src/Item.java	/^  public void setId(int id) {$/;"	m	class:Item
+setTitulo	./src/Item.java	/^  public void setTitulo(String titulo) {$/;"	m	class:Item
+titulo	./src/Item.java	/^  private String titulo;$/;"	f	class:Item	file:
+toString	./src/Emprestimo.java	/^  public String toString(){$/;"	m	class:Emprestimo
+tratarOpcao	./src/Funcionario.java	/^  public void tratarOpcao(String opt, Biblioteca bib){$/;"	m	class:Funcionario
+tratarOpcao	./src/Usuario.java	/^  public abstract void tratarOpcao(String opt, Biblioteca bib);$/;"	m	class:Usuario
+tratarOpcao	./src/UsuarioComum.java	/^  public void tratarOpcao(String opt, Biblioteca bib){$/;"	m	class:UsuarioComum
+usuarioLogado	./src/Autenticador.java	/^  private Usuario usuarioLogado = null;$/;"	f	class:Autenticador	file:
+usuarios	./src/Autenticador.java	/^  private HashMap<String, UsuarioComum> usuarios = new HashMap<>();$/;"	f	class:Autenticador	file:
