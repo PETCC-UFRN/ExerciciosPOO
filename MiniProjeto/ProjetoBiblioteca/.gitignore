@@ -1,2 +1,6 @@
 out/
-
+.idea/
+.vscode/
+tags
+ProjetoBiblioteca.iml
+stale_outputs_checked

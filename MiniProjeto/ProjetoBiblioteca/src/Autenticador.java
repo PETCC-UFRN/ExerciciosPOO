@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
-import org.json.*;
+//import org.json.*;
 
 /*
  * Classe para simular um backend com autenticação de usuário

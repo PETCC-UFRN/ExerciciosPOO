@@ -7,10 +7,16 @@ public class Livro extends Item {
   private String edicao;
   private String ano;
   // Construtor
-  public Livro(String titulo, String autor) {
-    super(titulo);
-    this.autor = autor;
+  public Livro() { /* Empty */ }
+
+  @Override
+  public void mostrarDetalhes() {
+    System.out.println("Título: " + this.getTitulo());
+    System.out.println("Autor: " + this.autor);
+    System.out.println("Quantidade: " + this.getQuantidade());
+    System.out.println("Disponíveis: " + this.getDisponiveis());
   }
+
   // Getters
   public String getAutor() {
     return autor;

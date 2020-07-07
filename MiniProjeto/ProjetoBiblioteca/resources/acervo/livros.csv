@@ -1,1 +1,4 @@
-Id,Titulo,Quantidad,Disponíveis,Autor,Edição,Ano
+Id;Titulo;Autor;Edição;Ano;Quantidade;Disponíveis
+0;O Senhor dos Anéis;John R. R. Tolkien;1;1973;5;3
+1;Fundação;Isaac Asimov;1;1951;2;1
+2;Fundação e Império;Isaac Asimov;1;1952;2;2

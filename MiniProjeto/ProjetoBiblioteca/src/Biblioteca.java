@@ -5,15 +5,29 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 
 public class Biblioteca{
   private Autenticador autenticador = Autenticador.getInstance();
   private Scanner sc = new Scanner(System.in);
-  private ArrayList<Item> itens = new ArrayList<>();
+  //private ArrayList<Item> acervo = new ArrayList<>();
+  //private HashMap<Integer, Item> acervo = new HashMap<>();
+  private Acervo acervo = new Acervo();
   private boolean aberto = true;
+
+  private Item itemSelecionado = null;
   
   public Biblioteca(){
+    //carregarAcervo();
+  }
+
+  public Item getItemSelecionado() {
+    return itemSelecionado;
+  }
+
+  public void executar(){
     while(aberto)
       mostrarOpcoes();
   }
@@ -49,6 +63,26 @@ public class Biblioteca{
         fechar();
       else
         System.out.println("Opção inválida");
+    }
+  }
+  public void opcoesDeAcervo(){
+    acervo.listarAcervo();
+    System.out.println("Digite um número para mostrar opções:");
+    String opt = sc.next();
+    try {
+      Item item = acervo.getItemById(Integer.parseInt(opt));
+      itemSelecionado = item;
+      item.mostrarDetalhes();
+      System.out.println("e - Solicitar empréstimo");
+      System.out.println("v - Voltar");
+      opt = sc.next();
+      if (opt.charAt(0)=='e') {
+        autenticador.getUsuarioLogado().tratarOpcao("e", this);
+      }
+    }
+    catch (Exception e) {
+      System.out.println("Erro ao solicitar empréstimo");
+      e.printStackTrace();
     }
   }
   private void fechar(){
