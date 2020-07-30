@@ -11,15 +11,14 @@ public class GameManeger
 	private Verifier v;
 	private boolean finished;
 	private int lastTurn;
-	private AtomicBoolean velha;
+	private boolean velha;
 	
 	
 	public GameManeger()
 	{
 		finished = false;
 		lastTurn = 2;
-		velha = new AtomicBoolean();
-		velha.set(false);
+		velha = false;
 	}
 	
 	public boolean isFinished() 
@@ -73,20 +72,32 @@ public class GameManeger
 	}
 	
 	public void verificarVitoria() 
-	{		
-		if(lastTurn == 1) // Verifica se o jogador 1 venceu.
+	{	
+		if(v.verify(t, p1) == 2) 
 		{
-			finished = v.verify(t, p1, this.velha);
+			finished = true;
+			velha = true;
+		}
+		else if(lastTurn == 1) // Verifica se o jogador 1 venceu.
+		{
+			if(v.verify(t, p1) == 1) 
+			{
+				finished = true;
+			}
+			
 		}
 		else // Verifica se o jogador 2 venceu.
 		{
-			finished = v.verify(t, p2, this.velha);
+			if(v.verify(t, p2) == 1) 
+			{
+				finished = true;
+			}
 		}
 	}
 	
 	public void winnerMessage() 
 	{
-		if(this.velha.get()) // Em caso de "velha", nenhum dos jogadores ganha
+		if(velha) // Em caso de "velha", nenhum dos jogadores ganha
 		{
 			System.out.println("Deu velha!!! Ninguém ganhou :(");
 		}
@@ -112,10 +123,10 @@ public class GameManeger
 	
 	public void reset() // Reinicia o jogo.
 	{
-		if(this.velha.get()) // Em caso de empate, nenhum jogador ganha uma vitória.
+		if(velha) // Em caso de empate, nenhum jogador ganha uma vitória.
 		{
 			finished = false;
-			velha.set(false);
+			velha = false;
 			for (int i = 0; i < 3; i++) // Reseta as marcações do tabuleiro.
 			{
 				for (int j = 0; j < 3; j++) 

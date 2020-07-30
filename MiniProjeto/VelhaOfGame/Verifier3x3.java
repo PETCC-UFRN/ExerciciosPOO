@@ -1,33 +1,30 @@
 package VelhaOfGame;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class Verifier3x3 extends Verifier
 {
-	public boolean verify(Tabuleiro t, Player p, AtomicBoolean velha) 
+	public int verify(Tabuleiro t, Player p) 
 	{	
 		if(verificarDiagonal(t, p)) // Verifica se houve uma vitória na diagonal secudária ou principal.
 		{
-			return true;
+			return 1;
 		}
 
 		if(verificarLinha(t,p)) // Verifica se houve uma vitória em uma das linhas.
 		{
-			return true;
+			return 1;
 		}	
 		
 		if(verificarColuna(t,p)) // Verica se houve uma vitória em uma das colunas.
 		{
-			return true;
+			return 1;
 		}
 		
 		if(verificarVelha(t)) // Verifica se houve empate.
 		{
-			velha.set(true);;
-			return true;
+			return 2;
 		}
 		
-		return false;
+		return 0;
 	}
 	
 	private boolean verificarDiagonal(Tabuleiro t, Player p) 

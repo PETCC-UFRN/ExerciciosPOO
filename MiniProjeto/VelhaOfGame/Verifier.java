@@ -1,12 +1,10 @@
 package VelhaOfGame;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class Verifier 
 {
-	public boolean verify(Tabuleiro t, Player p, AtomicBoolean velha) 
+	public int verify(Tabuleiro t, Player p) 
 	{
-		return false;
+		return 0;
 		//Override me
 	}
 }
