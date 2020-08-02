@@ -1,5 +1,7 @@
+package br.ufrn;
+
 /**
- * Livro
+ * deprecated.Livro
  */
 public class Livro extends Item {
 

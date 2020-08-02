@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package deprecated;
 
 public class Funcionario extends Usuario {
   public Funcionario(String nome, String senha){

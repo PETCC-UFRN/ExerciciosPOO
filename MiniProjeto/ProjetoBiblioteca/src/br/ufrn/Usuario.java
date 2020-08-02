@@ -1,3 +1,5 @@
+package br.ufrn;
+
 public abstract class Usuario {
   private String nome;
   private String senha;

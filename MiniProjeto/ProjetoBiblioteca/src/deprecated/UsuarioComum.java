@@ -1,3 +1,5 @@
+package deprecated;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -41,7 +43,7 @@ public class UsuarioComum extends Usuario {
       case 'm':
         System.out.println("Número de empréstimos: " + emprestimos.size());
         for (Emprestimo e: emprestimos) {
-          System.out.println("Item: " + e.item.getTitulo());
+          System.out.println("deprecated.Item: " + e.item.getTitulo());
           System.out.println("Data de Devolução: " + e.getDataDevolucao());
         }
         break;
@@ -60,7 +62,7 @@ public class UsuarioComum extends Usuario {
       emprestimos.add(e);
       BufferedWriter writer = new BufferedWriter(
               new FileWriter("resources/emprestimos.csv", true));
-      //usuário;data de devolução;data de empréstimo;Id Item
+      //usuário;data de devolução;data de empréstimo;Id deprecated.Item
       writer.append("\n" + getNome() + ";" + e.dataDevolucao + ";" + e.getDataEmprestimo() + ";" + item.getId());
       writer.close();
     }

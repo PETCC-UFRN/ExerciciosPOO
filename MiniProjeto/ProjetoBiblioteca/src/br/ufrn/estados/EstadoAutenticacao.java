@@ -1,25 +1,42 @@
 package br.ufrn.estados;
 
+import br.ufrn.*;
+
+import java.util.function.Function;
+
 public class EstadoAutenticacao implements Estado{
-    private String nomeDeUsuario;
 
     @Override
     public void mostrarOpcoes() {
-        if (nomeDeUsuario == null) {
-            System.out.println("Digite o nome de usuário:");
+        try {
+            Biblioteca.getInstance().getAutenticador().login();
+            System.out.println("Bem-vindo " + Biblioteca.getInstance()
+                    .getAutenticador()
+                    .getUsuarioLogado()
+                    .getNome());
+        } catch (NoSuchUserException e) {
+            System.out.println("Usuário não encontrado!");
+        } catch (InvalidPasswordException e) {
+            System.out.println("Senha inválida");;
         }
-        else {
-            System.out.println("Digite sua senha");
-        }
+        System.out.println("Deseja continuar?");
+        System.out.println("c - continuar\nq - quitar");
     }
 
     @Override
     public Estado proximoEstado(String opt) {
-        if (nomeDeUsuario == null) {
-            nomeDeUsuario = opt;
-            return this;
+        Usuario usuarioLogado = Biblioteca.getInstance().getAutenticador().getUsuarioLogado();
+        if (opt.charAt(0) == 'q')
+            return null;
+        else if (usuarioLogado == null) {
+            return new EstadoInicial();
         }
-        // Se o estado não é Nulo
-        return new EstadoAutenticado();//@TODO Passar usuário para o estado
+        else if (usuarioLogado instanceof UsuarioComum){
+            return new EstadoOpcoesComum();
+        }
+        else {
+            return new EstadoOpcoesFuncionario();
+        }
     }
+
 }

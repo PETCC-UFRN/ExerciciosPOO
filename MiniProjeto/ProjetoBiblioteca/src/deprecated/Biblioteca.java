@@ -1,19 +1,13 @@
-import java.io.Console;
-import java.security.MessageDigest;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+package deprecated;
+
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 
 public class Biblioteca{
   private Autenticador autenticador = Autenticador.getInstance();
   private Scanner sc = new Scanner(System.in);
-  //private ArrayList<Item> acervo = new ArrayList<>();
-  //private HashMap<Integer, Item> acervo = new HashMap<>();
+  //private ArrayList<deprecated.Item> acervo = new ArrayList<>();
+  //private HashMap<Integer, deprecated.Item> acervo = new HashMap<>();
   private Acervo acervo = new Acervo();
   private boolean aberto = true;
 

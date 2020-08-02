@@ -3,7 +3,7 @@ package br.ufrn.estados;
 public class EstadoListarAcervo implements Estado {
     @Override
     public void mostrarOpcoes() {
-        System.out.println("===== Acervo =====");
+        System.out.println("===== deprecated.Acervo =====");
         System.out.println("Id | Título");
         System.out.println("0 | O Senhor dos Anéis");
         System.out.println("==================");
@@ -16,7 +16,7 @@ public class EstadoListarAcervo implements Estado {
     public Estado proximoEstado(String opt) {
         switch (opt.charAt(0)){
             case 'v':
-                return new EstadoAutenticado();
+                return new EstadoOpcoesComum();
             case 'q':
                 return null;
             default:

@@ -1,4 +1,4 @@
 compile:
-	javac -cp src:libs/* src/Main.java -d out
+	javac -cp src:libs/* src/deprecated.Main.java -d out
 run:
-	java -cp out:libs/* Main
+	java -cp out:libs/* deprecated.Main

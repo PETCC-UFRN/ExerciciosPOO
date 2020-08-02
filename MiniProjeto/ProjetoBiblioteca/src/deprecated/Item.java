@@ -1,5 +1,7 @@
+package deprecated;
+
 /**
- * Item
+ * deprecated.Item
  */
 public abstract class Item {
   // TODO: Trocar por ISBN para livros e ISSN para periódicos

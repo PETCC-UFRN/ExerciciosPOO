@@ -1,3 +1,5 @@
+package deprecated;
+
 //Id;Título;Ano;Volume;Número;Assunto;Quantidade;Disponíveis
 public class Periodico extends Item {
     private String ano;

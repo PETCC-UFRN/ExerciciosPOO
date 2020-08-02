@@ -1,13 +1,11 @@
+package deprecated;
+
 import java.io.BufferedWriter;
 import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Scanner;
 //import org.json.*;
 
