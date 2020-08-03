@@ -1,7 +1,7 @@
 package br.ufrn;
 
 /**
- * deprecated.Item
+ * Item
  */
 public abstract class Item {
   // TODO: Trocar por ISBN para livros e ISSN para periódicos

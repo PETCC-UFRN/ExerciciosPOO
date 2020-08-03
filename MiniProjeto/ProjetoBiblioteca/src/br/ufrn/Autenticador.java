@@ -12,19 +12,27 @@ import java.util.Scanner;
  * Classe para simular um backend com autenticação de usuário
  */
 public class Autenticador{
-    static private Autenticador instance;
-    private HashMap<String, UsuarioComum> usuarios = new HashMap<>();
-    private HashMap<String, Funcionario> funcionarios = new HashMap<>();
-    private Usuario usuarioLogado = null;
+    static private Autenticador instance = new Autenticador();
+    static private HashMap<String, UsuarioComum> usuarios = new HashMap<>();
+    static private HashMap<String, Funcionario> funcionarios = new HashMap<>();
+    static private Usuario usuarioLogado = null;
     Scanner sc = new Scanner(System.in);
 
+    /**
+     * @brief   O construtor private serve para implementar o padrão de Singleton em que uma classe
+     * possui apenas um objeto.
+     */
     private Autenticador(){
-        carregarUsuarios();
-        carregarFuncionarios();
     }
+    /**
+     * @brief   Método que sempre retorna o único elemento dessa classe.
+     * @return  O objeto do tipo Autenticador.
+     */
     static public Autenticador getInstance(){
-        if (instance == null)
-            return new Autenticador();
+        if (usuarios.isEmpty())
+            carregarUsuarios();
+        if (funcionarios.isEmpty())
+            carregarFuncionarios();
         return instance;
     }
     /**
@@ -46,13 +54,13 @@ public class Autenticador{
         Console console = System.console();
         //String senha = new String(console.readPassword("Digite sua senha: "));
         // Atenção: O método abaixo para pegar senha não é seguro e foi usado apenas para fins didáticos:
-        System.out.println("Digite sua senha (Atenção! A senha irá aparecer!)");
+        System.out.print("Digite sua senha (Atenção! A senha irá aparecer!): ");
         String senha = sc.next();
         try {
             BufferedWriter writer = new BufferedWriter(
                     new FileWriter("resources/usuarios.csv", true));
             // Atenção: O método abaixo para salvar senha em arquivo não é seguro e foi usado apenas para fins didáticos
-            writer.append(nome+","+senha);
+            writer.append("\n" + nome+","+senha);
             writer.close();
             UsuarioComum u = new UsuarioComum(nome, senha);
             usuarioLogado = u;
@@ -78,8 +86,11 @@ public class Autenticador{
             // Se não estiver entre os usuários comuns:
             checarFuncionario(nome);
         }
-        Console console = System.console();
-        String senha = new String(console.readPassword("Digite sua senha: "));
+        //Console console = System.console();
+        //String senha = new String(console.readPassword("Digite sua senha: "));
+        // Atenção: O método abaixo para pegar senha não é seguro e foi usado apenas para fins didáticos:
+        System.out.print("Digite sua senha (Atenção! A senha irá aparecer!): ");
+        String senha = sc.next();
         checarSenha(senha);
     }
 
@@ -87,13 +98,13 @@ public class Autenticador{
      * @brief  Getter para o usuário autenticado.
      * @return Um objeto do tipo Usuário.
      */
-    public Usuario getUsuarioLogado(){
+    static public Usuario getUsuarioLogado(){
         return usuarioLogado;
     }
-    public void sair(){
+    static public void sair(){
         usuarioLogado = null;
     }
-    private void carregarUsuarios(){
+    static private void carregarUsuarios(){
         try {
             Scanner reader = new Scanner(new File("resources/usuarios.csv"));
             String header = reader.nextLine();//Primeira linha é o cabeçalho
@@ -107,7 +118,7 @@ public class Autenticador{
             sair();
         }
     }
-    private void carregarFuncionarios(){
+    static private void carregarFuncionarios(){
         try {
             Scanner reader = new Scanner(new File("resources/funcionarios.csv"));
             String header = reader.nextLine();//Primeira linha é o cabeçalho

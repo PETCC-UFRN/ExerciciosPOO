@@ -2,8 +2,6 @@ package br.ufrn.estados;
 
 import br.ufrn.*;
 
-import java.util.function.Function;
-
 public class EstadoAutenticacao implements Estado{
 
     @Override

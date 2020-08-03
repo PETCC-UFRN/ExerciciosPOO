@@ -1,13 +1,15 @@
 package br.ufrn.estados;
 
+import br.ufrn.Autenticador;
 import br.ufrn.Biblioteca;
 import br.ufrn.Item;
+import br.ufrn.Usuario;
 
 /**
  * Esse estado irá mostrar
  */
 public class EstadoDetalhes implements Estado {
-    Item item; //deprecated.Item para mostrar opções
+    private Item item; //Item para mostrar opções
 
     /**
      * O Construtor do estado deve receber um item para mostrar os detalhes e opções
@@ -33,8 +35,13 @@ public class EstadoDetalhes implements Estado {
             case 'v':
                 return new EstadoListarAcervo();
             case 'e':
-                Biblioteca.getInstance();
-                return this;// @TODO Realizar o empréstimo
+                if (item.getDisponiveis() > 0) {
+                    Autenticador.getInstance().getUsuarioLogado().adicionarEmprestimo(item);
+                    System.out.println("Empréstimo de " + item.getTitulo() + " realizado com sucesso.");
+                }
+                else
+                    System.out.println("Não há exemplares disponíveis");
+                return this;
             default:
                 System.out.println("Opção inválida");
         }

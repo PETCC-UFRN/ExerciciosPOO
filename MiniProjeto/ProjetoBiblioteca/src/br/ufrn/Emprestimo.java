@@ -2,11 +2,11 @@ package br.ufrn;
 
 import java.time.LocalDate;
 
-public class Emprestimo implements Comparable {
-  public LocalDate dataEmprestimo;
-  public LocalDate dataDevolucao;
-  public boolean renovado;
-  public Item item;
+public class Emprestimo implements Comparable<Emprestimo> {
+  private LocalDate dataEmprestimo;
+  private LocalDate dataDevolucao;
+  private boolean renovado;
+  private Item item;
 
   public Emprestimo(){
     dataEmprestimo = LocalDate.now();
@@ -27,6 +27,18 @@ public class Emprestimo implements Comparable {
       dataDevolucao = dataDevolucao.plusDays(14);
       renovado = true;
     }
+  }
+
+  public void setDataEmprestimo(LocalDate dataEmprestimo) {
+    this.dataEmprestimo = dataEmprestimo;
+  }
+
+  public void setDataDevolucao(LocalDate dataDevolucao) {
+    this.dataDevolucao = dataDevolucao;
+  }
+
+  public void setRenovado(boolean renovado) {
+    this.renovado = renovado;
   }
 
   public LocalDate getDataEmprestimo(){
@@ -55,8 +67,12 @@ public class Emprestimo implements Comparable {
   }
 
   @Override
-  public int compareTo(Object o) {
-    return this.item.getId() - ((Emprestimo)o).getItem().getId();
+  public int compareTo(Emprestimo emprestimo) {
+      if (this.getDataDevolucao() == emprestimo.getDataDevolucao())
+        return this.item.getId() - emprestimo.getItem().getId();
+      else {
+        return this.getDataDevolucao().compareTo(emprestimo.getDataDevolucao());
+      }
   }
 }
 
